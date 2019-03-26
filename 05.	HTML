@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace _05.HTML
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string inputHeader = Console.ReadLine();
+            string inputArticle = Console.ReadLine();
+            Console.WriteLine("<h1>");
+            Console.WriteLine($" {inputHeader} ");
+            Console.WriteLine($"</h1>");
+            Console.WriteLine("<article>");
+            Console.WriteLine($" {inputArticle} ");
+            Console.WriteLine($"</article>");
+
+            while (true)
+            {
+                string input = Console.ReadLine();
+                if ( input == "end of comments")
+                {
+                    break;
+                }
+
+                Console.WriteLine("<div>");
+                Console.WriteLine($" {input} ");
+                Console.WriteLine("</div>");
+
+
+            }
+
+
+        }
+    }
+}
