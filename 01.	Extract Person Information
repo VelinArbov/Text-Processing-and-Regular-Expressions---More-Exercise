@@ -1,0 +1,30 @@
+using System;
+using System.Text.RegularExpressions;
+using System.Text;
+
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int numberoflines = int.Parse(Console.ReadLine());
+            for (int i = 0; i < numberoflines; i++)
+            
+            {
+                string input = Console.ReadLine();
+                var paternName = @"(?<=@)[A-Za-z]*(?=\|)";
+                var paternYears = @"(?<=#)[0-9]*(?=\*)";
+                Match names = Regex.Match(input, paternName);
+                Match years = Regex.Match(input, paternYears);
+
+
+                Console.WriteLine($"{ names.ToString()} is {years.ToString()} years old.");
+            }
+
+
+
+        }
+    }
+}
