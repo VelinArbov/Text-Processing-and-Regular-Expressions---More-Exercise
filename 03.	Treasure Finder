@@ -1,0 +1,51 @@
+using System;
+using System.Text.RegularExpressions;
+using System.Text;
+using System.Linq;
+using System.Collections.Generic;
+
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> numberKey = Console.ReadLine().Split().Select(int.Parse).ToList();
+            string newString = string.Empty;
+            int count = 0;
+           
+            while (true)
+            {
+                string inputChars = Console.ReadLine();
+                if (inputChars == "find") { break; }
+                newString = string.Empty;
+                for (int i = 0; i < inputChars.Length; i++)
+                {
+                       
+                        int currentChar = inputChars[i] ;
+                        int newchar =  currentChar - numberKey[count];
+                        char newChars = (char)newchar;
+                        newString += newChars;
+                    
+                    if (count + 1 >= numberKey.Count)
+                    {
+                        count = -1;
+                    }
+
+                    count++;
+                }
+                count = 0;
+                var material = @"(?<material>(?<=&)[\w]*((?=&)))";
+                var patternName = @"(?<name>(?<=<))([A-Z0-9a-z]*)";
+                Match materialreg = Regex.Match(newString, material);
+                Match nameofmaterial = Regex.Match(newString, patternName);
+
+                Console.WriteLine($"Found {materialreg.ToString()} at {nameofmaterial.ToString()}");
+
+            }
+           
+           
+        }
+    }
+}
