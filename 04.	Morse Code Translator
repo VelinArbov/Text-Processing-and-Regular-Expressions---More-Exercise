@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Morse_Code
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Dictionary<string, string> lalhabet = new Dictionary<string, string>()
+            {
+                 [".-"] = "A",["-..."] = "B",["-.-."] = "C", ["-.."] = "D",
+            ["."] = "E",["..-."] = "F",["--."] = "G",["...."] = "H",
+            [".."] = "I",[".---"] = "J",["-.-"] = "K",[".-.."] = "L",
+            ["--"] = "M",["-."] = "N",["---"] = "O",[".--."] = "P",
+            ["--.-"] = "Q",[".-."] = "R",["..."] = "S",["-"] = "T",
+            ["..-"] = "U",["...-"] = "V",[".--"] = "W",["-..-"] = "X",
+            ["-.--"] = "Y",["--.."] = "Z",
+            };
+
+            string[] messages = Console.ReadLine().Split('|').ToArray();
+            foreach (var item in messages)
+            {
+
+                string[] letters = item.Split(' ');
+                foreach (var letter in letters)
+                {
+                    if (lalhabet.ContainsKey(letter))
+                    {
+                        Console.Write(lalhabet[letter]);
+                    }
+                }
+                Console.Write(" ");
+
+            }
+            Console.WriteLine();
+        }
+    }
+}
